@@ -60,7 +60,7 @@ def test_set_node_features_cpu():
     for i in range(5):
         assert g.node_features["zero"][i] == 1
 
-    # Test computational graph consistency when modifying node features both partially and completely
+    # Test computational graph consistency when modifying node features both partially and completely  # noqa
     embedding_layer = nn.Embedding(num_embeddings=100, embedding_dim=10)
     optimizer = torch.optim.Adam(params=embedding_layer.parameters())
     target = torch.ones(10)
@@ -106,7 +106,7 @@ def test_set_node_features_gpu():
     for i in range(5):
         assert g.node_features["zero"][i] == 1
 
-    # Test computational graph consistency when modifying node features both partially and completely
+    # Test computational graph consistency when modifying node features both partially and completely  # noqa
     embedding_layer = nn.Embedding(num_embeddings=100, embedding_dim=10).to(device)
     optimizer = torch.optim.Adam(params=embedding_layer.parameters())
     target = torch.ones(10).to(device)
@@ -188,7 +188,7 @@ def test_edge_features():
     for i in range(10):
         g.add_edge(src=i, tgt=(i + 1) % 10)
     g.edge_features["idx"] = torch.tensor(list(range(10)), dtype=torch.long)
-    # Test computational graph consistency when modifying node features both partially and completely
+    # Test computational graph consistency when modifying node features both partially and completely  # noqa
     embedding_layer = nn.Embedding(num_embeddings=100, embedding_dim=10)
     optimizer = torch.optim.Adam(params=embedding_layer.parameters())
     target = torch.ones(10)
@@ -441,7 +441,7 @@ def test_batch_node_features():
         assert torch.all(torch.eq(g.edge_features["edge_feat"], new_batch_edge_features[i]))
 
 
-## MEM utils ##
+# MEM utils
 def mem_report():
     """Report the memory usage of the tensor.storage in pytorch
     Both on CPUs and GPUs are reported"""
